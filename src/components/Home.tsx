@@ -139,14 +139,14 @@ export function Home({ onNFTDrop, clickCount, setClickCount }: HomeProps) {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block px-6 py-2 rounded-2xl glass-gold mb-3">
-                <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E2A5A] via-[#295EE7] to-[#1E2A5A]">
+                <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-cathedral via-sapphire to-cathedral font-serif text-xl">
                   圣所祈祷殿
                 </h1>
               </div>
               <div className="flex items-center justify-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#EEDCB3]" />
-                <p className="text-sm text-[#1E2A5A]/60">点击圣物，获得神圣NFT祝福</p>
-                <Sparkles className="w-4 h-4 text-[#EEDCB3]" />
+                <Sparkles className="w-4 h-4 text-gold-soft" />
+                <p className="text-sm text-cathedral/60">点击圣物，获得神圣NFT祝福</p>
+                <Sparkles className="w-4 h-4 text-gold-soft" />
               </div>
             </motion.div>
           </div>
@@ -288,6 +288,7 @@ export function Home({ onNFTDrop, clickCount, setClickCount }: HomeProps) {
                   duration: 3,
                   repeat: Infinity,
                   ease: 'easeInOut',
+                  delay: 0.2
                 }}
                 className="relative"
               >
@@ -312,12 +313,12 @@ export function Home({ onNFTDrop, clickCount, setClickCount }: HomeProps) {
                   <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-r from-black/30 to-transparent rounded-l-lg" />
                   
                   {/* Page Edge */}
-                  <div className="absolute right-0 top-1 bottom-1 w-1 bg-gradient-to-l from-[#EEDCB3] to-transparent opacity-60" />
+                  <div className="absolute right-0 top-1 bottom-1 w-1 bg-gradient-to-l from-gold-soft to-transparent opacity-60" />
                 </div>
               </motion.div>
               
               <div className="mt-3 px-4 py-1 rounded-lg glass-gold">
-                <span className="text-sm text-[#1E2A5A]/80 tracking-wider">圣 经</span>
+                <span className="text-sm text-cathedral/80 tracking-wider font-medium">圣 经</span>
               </div>
             </div>
           </motion.div>
@@ -330,8 +331,8 @@ export function Home({ onNFTDrop, clickCount, setClickCount }: HomeProps) {
               transition={{ delay: 0.8 }}
               className="text-center px-6 py-3 rounded-2xl glass-morphism sacred-glow"
             >
-              <div className="text-xs text-[#1E2A5A]/60 mb-1">今日祈祷</div>
-              <div className="text-xl text-[#1E2A5A]">{clickCount}</div>
+              <div className="text-xs text-cathedral/60 mb-1">今日祈祷</div>
+              <div className="text-xl text-cathedral font-serif">{clickCount}</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -339,8 +340,8 @@ export function Home({ onNFTDrop, clickCount, setClickCount }: HomeProps) {
               transition={{ delay: 0.9 }}
               className="text-center px-6 py-3 rounded-2xl glass-morphism sacred-glow"
             >
-              <div className="text-xs text-[#1E2A5A]/60 mb-1">获得圣物</div>
-              <div className="text-xl text-[#1E2A5A]">12</div>
+              <div className="text-xs text-cathedral/60 mb-1">获得圣物</div>
+              <div className="text-xl text-cathedral font-serif">12</div>
             </motion.div>
           </div>
         </div>
@@ -357,12 +358,12 @@ export function Home({ onNFTDrop, clickCount, setClickCount }: HomeProps) {
             className="p-5 rounded-2xl glass-gold sacred-glow group transition-all duration-300"
           >
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#295EE7] to-[#1E2A5A] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sapphire to-cathedral flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
                 <Info className="w-6 h-6 text-white" />
               </div>
-              <span className="text-[#1E2A5A]">掉落规则</span>
+              <span className="text-cathedral font-medium">掉落规则</span>
             </div>
-            <p className="text-xs text-[#1E2A5A]/60 text-left">查看NFT稀有度与概率</p>
+            <p className="text-xs text-cathedral/60 text-left">查看NFT稀有度与概率</p>
           </motion.button>
 
           <motion.button
@@ -374,12 +375,12 @@ export function Home({ onNFTDrop, clickCount, setClickCount }: HomeProps) {
             className="p-5 rounded-2xl glass-gold sacred-glow group transition-all duration-300"
           >
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#EEDCB3] to-[#E4D2A6] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-                <Sparkles className="w-6 h-6 text-[#1E2A5A]" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-soft to-gold flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                <Sparkles className="w-6 h-6 text-cathedral" />
               </div>
-              <span className="text-[#1E2A5A]">祈祷记录</span>
+              <span className="text-cathedral font-medium">祈祷记录</span>
             </div>
-            <p className="text-xs text-[#1E2A5A]/60 text-left">查看您的祈祷历史</p>
+            <p className="text-xs text-cathedral/60 text-left">查看您的祈祷历史</p>
           </motion.button>
         </div>
       </div>

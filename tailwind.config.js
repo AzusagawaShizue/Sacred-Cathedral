@@ -8,6 +8,23 @@ export default {
   theme: {
   	extend: {
   		colors: {
+            // Sacred Theme Colors
+            void: 'var(--void)',
+            cathedral: 'var(--cathedral)',
+            gold: {
+                DEFAULT: 'var(--gold)',
+                soft: 'var(--gold-soft)',
+            },
+            ivory: 'var(--ivory)',
+            cream: 'var(--cream)',
+            sapphire: 'var(--sapphire)',
+            
+            // Rarity
+            legendary: 'var(--legendary)',
+            rare: 'var(--rare)',
+            common: 'var(--common)',
+
+            // System
   			border: 'var(--border)',
   			input: 'var(--input)',
   			ring: 'var(--ring)',
@@ -52,6 +69,10 @@ export default {
   				ring: 'var(--sidebar-ring)'
   			}
   		},
+        fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+        },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
