@@ -1,0 +1,82 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String   @id @default(uuid())
+  walletAddress String   @unique
+  spirit        Int      @default(100) // Daily spirit
+  maxSpirit     Int      @default(100)
+  piety         Int      @default(0) // DAO voting power
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  inventory     InventoryItem[]
+  prayers       PrayerLog[]
+}
+
+model InventoryItem {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  itemId    String   // ID from metadata/contract (e.g., "wood", "candle")
+  amount    Int      @default(1)
+  isOnChain Boolean  @default(false) // True if minted
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, itemId, isOnChain])
+}
+
+model PrayerLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  timestamp DateTime @default(now())
+  rewards   Json?    // What dropped
+}
+
+// Indexer State
+model IndexerState {
+  chainId       Int    @id
+  lastBlock     BigInt
+  updatedAt     DateTime @updatedAt
+}
+
+// Indexed Events
+model ContractEvent {
+  id              String   @id @default(uuid())
+  chainId         Int
+  blockNumber     BigInt
+  transactionHash String
+  contractAddress String
+  eventName       String
+  args            Json
+  createdAt       DateTime @default(now())
+
+  @@index([contractAddress, eventName])
+  @@index([blockNumber])
+}
+
+// DAO Treasury Tracking
+model TreasurySnapshot {
+  id        String   @id @default(uuid())
+  balance   String   // Wei value
+  currency  String   // ETH, GRACE, etc.
+  timestamp DateTime @default(now())
+}
+
+// NFT Metadata (for caching/indexing)
+model NftMetadata {
+  id          String   @id // Usually the IPFS hash or TokenURI
+  name        String
+  description String?
+  image       String
+  attributes  Json?
+  createdAt   DateTime @default(now())
+}
